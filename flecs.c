@@ -18805,9 +18805,6 @@ int add_member_to_struct(
         }
     }
 
-    /* Align struct size to struct alignment */
-    size = ECS_ALIGN(size, alignment);
-
     if (size == 0) {
         ecs_err("struct '%s' has 0 size", ecs_get_name(world, type));
         return -1;
@@ -18817,6 +18814,9 @@ int add_member_to_struct(
         ecs_err("struct '%s' has 0 alignment", ecs_get_name(world, type));
         return -1;
     }
+
+    /* Align struct size to struct alignment */
+    size = ECS_ALIGN(size, alignment);
 
     ecs_modified(world, type, EcsStruct);
 

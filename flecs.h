@@ -6904,6 +6904,11 @@ void FlecsTimerImport(
 
 #ifdef FLECS_META
 
+#ifndef FLECS_MODULE
+#define FLECS_MODULE
+#endif
+
+
 #ifndef FLECS_META_H
 #define FLECS_META_H
 
